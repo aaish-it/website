@@ -9,7 +9,6 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="AAISH Tech builds smart business management software. Zyrohs is our all-in-one ERP platform for retail, wholesale, manufacturing, and trading businesses." />
-		<meta name="keywords" content="AAISH Tech, Zyrohs, business software, ERP, POS, inventory management, accounting software" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,582 +16,517 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 
-			/* ============================================================
-			   BASE & FONTS
-			============================================================ */
-			:root {
-				--purple:       #7C3AED;
-				--purple-light: #A78BFA;
-				--purple-dark:  #5B21B6;
-				--blue:         #3B82F6;
-				--dark:         #0C0A1A;
-				--dark-2:       #110D2A;
-				--dark-3:       #1A1035;
-				--text-muted:   rgba(255,255,255,0.62);
-			}
+		/* ================================================================
+		   VARIABLES
+		================================================================ */
+		:root {
+			--purple:       #7C3AED;
+			--purple-lg:    #A78BFA;
+			--purple-dk:    #5B21B6;
+			--dark:         #0A0818;
+			--dark2:        #100D26;
+			--dark3:        #160D30;
+			--muted:        rgba(255,255,255,0.58);
+		}
 
-			*, *::before, *::after { box-sizing: border-box; }
+		*, *::before, *::after { box-sizing: border-box; }
 
-			body, input, select, textarea, button {
-				font-family: 'Inter', sans-serif !important;
-			}
+		body, input, select, textarea, button {
+			font-family: 'Inter', sans-serif !important;
+		}
 
-			/* ============================================================
-			   HEADER / NAV
-			============================================================ */
-			#header {
-				background: rgba(12, 10, 26, 0.92);
-				backdrop-filter: blur(12px);
-				-webkit-backdrop-filter: blur(12px);
-				border-bottom: 1px solid rgba(124, 58, 237, 0.18);
-				padding: 0 2em;
-			}
-			#header.alt {
-				background: transparent;
-				border-bottom: none;
-			}
+		/* ================================================================
+		   HEADER
+		================================================================ */
+		#header {
+			background: rgba(10, 8, 24, 0.94) !important;
+			backdrop-filter: blur(16px);
+			-webkit-backdrop-filter: blur(16px);
+			border-bottom: 1px solid rgba(124,58,237,0.2);
+		}
+		#header.alt { background: transparent !important; border-bottom: none; }
 
-			#logo a.logo-text {
-				font-family: 'Inter', sans-serif !important;
-				font-weight: 900;
-				font-size: 1.15em;
-				letter-spacing: 2.5px;
-				text-transform: uppercase;
-				color: #fff !important;
-				text-decoration: none;
-			}
-			#logo a.logo-text span {
-				color: var(--purple-light);
-			}
+		#logo a {
+			font-family: 'Inter', sans-serif !important;
+			font-weight: 900;
+			font-size: 1.1em;
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			color: #fff !important;
+			text-decoration: none;
+		}
+		#logo a span { color: var(--purple-lg); }
 
-			#nav > ul > li > a {
-				font-size: 0.82em;
-				font-weight: 600;
-				letter-spacing: 0.5px;
-				color: rgba(255,255,255,0.78) !important;
-				transition: color 0.2s;
-			}
-			#nav > ul > li > a:hover { color: #fff !important; }
+		#nav > ul > li > a {
+			font-size: 0.82em;
+			font-weight: 500;
+			color: rgba(255,255,255,0.72) !important;
+			transition: color 0.2s;
+		}
+		#nav > ul > li > a:hover { color: #fff !important; }
 
-			#nav > ul > li > a.button.primary {
-				background: var(--purple) !important;
-				border-color: var(--purple) !important;
-				color: #fff !important;
-				padding: 0.5em 1.4em;
-				border-radius: 6px;
-				font-weight: 700;
-				transition: background 0.2s, transform 0.15s;
-			}
-			#nav > ul > li > a.button.primary:hover {
-				background: var(--purple-dark) !important;
-				border-color: var(--purple-dark) !important;
-				transform: translateY(-1px);
-			}
+		#nav > ul > li > a.button.primary {
+			background: var(--purple) !important;
+			border-color: var(--purple) !important;
+			color: #fff !important;
+			padding: 0.5em 1.5em !important;
+			border-radius: 7px !important;
+			font-weight: 700 !important;
+		}
+		#nav > ul > li > a.button.primary:hover {
+			background: var(--purple-dk) !important;
+			border-color: var(--purple-dk) !important;
+		}
 
-			/* ============================================================
-			   BANNER / HERO
-			============================================================ */
-			#banner {
-				background-image: url('images/banner.jpg');
-				background-size: cover;
-				background-position: center top;
-				background-attachment: fixed;
-				position: relative;
-			}
-			#banner::before {
-				content: '';
-				position: absolute;
-				inset: 0;
-				background: linear-gradient(135deg,
-					rgba(10, 5, 30, 0.68) 0%,
-					rgba(20, 10, 60, 0.52) 50%,
-					rgba(10, 25, 70, 0.45) 100%);
-				z-index: 0;
-			}
-			#banner .content {
-				position: relative;
-				z-index: 1;
-			}
-			#banner .content header h2 {
-				font-family: 'Inter', sans-serif !important;
-				font-size: 3.4em;
-				font-weight: 900;
-				line-height: 1.1;
-				letter-spacing: -1px;
-				color: #fff;
-				margin-bottom: 0.5em;
-			}
-			#banner .content header p {
-				font-size: 1.12em;
-				line-height: 1.75;
-				color: rgba(255,255,255,0.78);
-				font-weight: 400;
-				margin-bottom: 0;
-			}
+		/* ================================================================
+		   HERO BANNER
+		================================================================ */
+		#banner {
+			position: relative;
+			background-color: var(--dark);
+			overflow: hidden;
+		}
 
-			/* Hero buttons */
-			#banner .actions .button.primary {
-				background: var(--purple) !important;
-				border-color: var(--purple) !important;
-				color: #fff !important;
-				font-weight: 700;
-				font-size: 0.95em;
-				padding: 0.75em 2em;
-				border-radius: 8px;
-				transition: all 0.2s;
-				box-shadow: 0 4px 20px rgba(124,58,237,0.4);
-			}
-			#banner .actions .button.primary:hover {
-				background: var(--purple-dark) !important;
-				border-color: var(--purple-dark) !important;
-				transform: translateY(-2px);
-				box-shadow: 0 8px 28px rgba(124,58,237,0.5);
-			}
-			#banner .actions .button:not(.primary) {
-				background: transparent !important;
-				border: 2px solid rgba(255,255,255,0.45) !important;
-				color: rgba(255,255,255,0.9) !important;
-				font-weight: 600;
-				font-size: 0.95em;
-				padding: 0.75em 2em;
-				border-radius: 8px;
-				transition: all 0.2s;
-			}
-			#banner .actions .button:not(.primary):hover {
-				border-color: rgba(255,255,255,0.85) !important;
-				color: #fff !important;
-				background: rgba(255,255,255,0.08) !important;
-			}
+		/* Background image layer */
+		#banner .bg-image {
+			position: absolute;
+			inset: 0;
+			background-image: url('images/banner.jpg');
+			background-size: cover;
+			background-position: center;
+			opacity: 0.28;
+			animation: slowZoom 16s ease-out forwards;
+			z-index: 0;
+		}
+		@keyframes slowZoom {
+			from { transform: scale(1.08); }
+			to   { transform: scale(1.0); }
+		}
 
-			/* ============================================================
-			   MODULE TAG PILL
-			============================================================ */
-			.module-tag {
-				display: inline-block;
-				background: rgba(124, 58, 237, 0.18);
-				color: var(--purple-light);
-				border: 1px solid rgba(124, 58, 237, 0.35);
-				border-radius: 100px;
-				padding: 4px 16px;
-				font-size: 0.68em;
-				font-weight: 700;
-				letter-spacing: 2.5px;
-				text-transform: uppercase;
-				margin-bottom: 1em;
-			}
+		/* Purple glow blobs */
+		#banner .blob1 {
+			position: absolute;
+			width: 700px; height: 700px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(124,58,237,0.28) 0%, transparent 70%);
+			top: -200px; left: -150px;
+			z-index: 0;
+			animation: float1 8s ease-in-out infinite alternate;
+		}
+		#banner .blob2 {
+			position: absolute;
+			width: 500px; height: 500px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+			bottom: -100px; right: -100px;
+			z-index: 0;
+		}
+		@keyframes float1 {
+			from { transform: translate(0, 0) scale(1); }
+			to   { transform: translate(30px, 20px) scale(1.05); }
+		}
 
-			/* ============================================================
-			   SPOTLIGHT IMAGES — more visible, smooth reveal
-			============================================================ */
+		/* Content */
+		#banner .content {
+			position: relative;
+			z-index: 2;
+		}
+		#banner .content header h2 {
+			font-family: 'Inter', sans-serif !important;
+			font-size: 3.6em;
+			font-weight: 900;
+			line-height: 1.08;
+			letter-spacing: -1.5px;
+			color: #fff;
+			margin-bottom: 0.45em;
+		}
+		#banner .content header p {
+			font-size: 1.1em;
+			line-height: 1.75;
+			color: rgba(255,255,255,0.7);
+			font-weight: 400;
+		}
 
-			/* Reduce the built-in overlay on spotlight images */
-			.spotlight.style1 .image.fit.main img,
-			.spotlight.style2 .image.fit.main img,
-			.spotlight.style3 .image.fit.main img {
-				opacity: 1 !important;
-				filter: brightness(0.72) saturate(1.1);
-				transition: filter 0.6s ease, opacity 0.6s ease;
-			}
-			.spotlight.style1:hover .image.fit.main img,
-			.spotlight.style2:hover .image.fit.main img,
-			.spotlight.style3:hover .image.fit.main img {
-				filter: brightness(0.82) saturate(1.15);
-			}
+		/* Hero buttons */
+		#banner .actions .button.primary {
+			background: var(--purple) !important;
+			border: none !important;
+			color: #fff !important;
+			font-weight: 700 !important;
+			font-size: 0.92em !important;
+			padding: 0.82em 2.1em !important;
+			border-radius: 9px !important;
+			box-shadow: 0 0 0 0 rgba(124,58,237,0.5);
+			transition: all 0.25s !important;
+		}
+		#banner .actions .button.primary:hover {
+			background: var(--purple-dk) !important;
+			transform: translateY(-2px) !important;
+			box-shadow: 0 8px 30px rgba(124,58,237,0.55) !important;
+		}
+		#banner .actions .button:not(.primary) {
+			background: transparent !important;
+			border: 1.5px solid rgba(255,255,255,0.38) !important;
+			color: rgba(255,255,255,0.88) !important;
+			font-weight: 600 !important;
+			font-size: 0.92em !important;
+			padding: 0.82em 2.1em !important;
+			border-radius: 9px !important;
+			transition: all 0.25s !important;
+		}
+		#banner .actions .button:not(.primary):hover {
+			border-color: rgba(255,255,255,0.75) !important;
+			color: #fff !important;
+			background: rgba(255,255,255,0.07) !important;
+		}
 
-			/* Animated reveal on scroll */
-			.spotlight .image.fit.main {
-				overflow: hidden;
-			}
-			.spotlight .image.fit.main img {
-				transform: scale(1.04);
-				transition: transform 8s ease, filter 0.6s ease;
-			}
-			.is-visible .spotlight .image.fit.main img,
-			.spotlight.active .image.fit.main img {
-				transform: scale(1.0);
-			}
+		/* ================================================================
+		   MODULE TAG PILL
+		================================================================ */
+		.module-tag {
+			display: inline-block;
+			background: rgba(124,58,237,0.15);
+			color: var(--purple-lg);
+			border: 1px solid rgba(124,58,237,0.32);
+			border-radius: 100px;
+			padding: 4px 16px;
+			font-size: 0.66em;
+			font-weight: 700;
+			letter-spacing: 2.5px;
+			text-transform: uppercase;
+			margin-bottom: 1em;
+		}
 
-			/* Override the default dark before-overlays */
-			.spotlight .image.fit.main::before {
-				opacity: 0 !important;
-			}
+		/* ================================================================
+		   SPOTLIGHT SECTIONS
+		================================================================ */
+		.spotlight .content header h2 {
+			font-family: 'Inter', sans-serif !important;
+			font-size: 2em;
+			font-weight: 800;
+			line-height: 1.2;
+			letter-spacing: -0.3px;
+			color: #fff;
+		}
+		.spotlight .content header p {
+			font-size: 0.88em;
+			color: var(--muted);
+			margin-top: 0.25em;
+		}
+		.spotlight .content > p {
+			font-size: 0.9em;
+			line-height: 1.82;
+			color: rgba(255,255,255,0.68);
+		}
+		.spotlight .content > p strong { color: var(--purple-lg); }
 
-			/* ============================================================
-			   SPOTLIGHT SECTIONS
-			============================================================ */
-			.spotlight .content header h2 {
-				font-family: 'Inter', sans-serif !important;
-				font-size: 2.1em;
-				font-weight: 800;
-				line-height: 1.2;
-				letter-spacing: -0.3px;
-				color: #fff;
-			}
-			.spotlight .content header p {
-				font-size: 0.95em;
-				color: var(--text-muted);
-				letter-spacing: 0.3px;
-				margin-top: 0.3em;
-			}
-			.spotlight .content p {
-				font-size: 0.92em;
-				line-height: 1.8;
-				color: rgba(255,255,255,0.75);
-			}
+		/* Spotlight images — visible, not over-darkened */
+		.spotlight .image.fit.main img {
+			filter: brightness(0.78) saturate(1.08);
+			transition: filter 0.5s ease;
+		}
+		.spotlight:hover .image.fit.main img {
+			filter: brightness(0.88) saturate(1.12);
+		}
 
-			/* Spotlight outline buttons */
-			.spotlight .actions .button:not(.primary) {
-				background: transparent !important;
-				border: 2px solid rgba(255,255,255,0.4) !important;
-				color: rgba(255,255,255,0.9) !important;
-				font-weight: 600;
-				border-radius: 7px;
-				transition: all 0.2s;
-			}
-			.spotlight .actions .button:not(.primary):hover {
-				border-color: var(--purple-light) !important;
-				color: var(--purple-light) !important;
-				background: rgba(124,58,237,0.1) !important;
-			}
-			.spotlight .actions .button.primary {
-				background: var(--purple) !important;
-				border-color: var(--purple) !important;
-				color: #fff !important;
-				font-weight: 700;
-				border-radius: 7px;
-			}
+		/* Buttons inside spotlights */
+		.spotlight .actions .button {
+			font-weight: 600 !important;
+			border-radius: 8px !important;
+			font-size: 0.88em !important;
+			transition: all 0.22s !important;
+		}
+		.spotlight .actions .button.primary {
+			background: var(--purple) !important;
+			border-color: var(--purple) !important;
+			color: #fff !important;
+			box-shadow: 0 4px 18px rgba(124,58,237,0.35);
+		}
+		.spotlight .actions .button.primary:hover {
+			background: var(--purple-dk) !important;
+			border-color: var(--purple-dk) !important;
+			transform: translateY(-2px) !important;
+		}
+		.spotlight .actions .button:not(.primary) {
+			background: transparent !important;
+			border: 1.5px solid rgba(255,255,255,0.36) !important;
+			color: rgba(255,255,255,0.85) !important;
+		}
+		.spotlight .actions .button:not(.primary):hover {
+			border-color: var(--purple-lg) !important;
+			color: var(--purple-lg) !important;
+			background: rgba(124,58,237,0.1) !important;
+		}
 
-			/* ============================================================
-			   SECTION ONE — ABOUT AAISH TECH (3-col)
-			============================================================ */
-			#one {
-				background: var(--dark-2);
-			}
-			#one .content {
-				background: rgba(12, 10, 26, 0.88);
-				backdrop-filter: blur(8px);
-			}
-			#one .content h2 {
-				font-size: 1.85em;
-				font-weight: 800;
-				line-height: 1.25;
-				color: #fff;
-			}
-			#one .content header p {
-				font-size: 0.82em;
-				color: var(--text-muted);
-				font-style: italic;
-			}
-			#one .content .col-4 > p {
-				font-size: 0.88em;
-				line-height: 1.8;
-				color: rgba(255,255,255,0.7);
-			}
-			#one .content .col-4 > p strong {
-				color: var(--purple-light);
-			}
+		/* ================================================================
+		   SECTION ONE — 3-COL ABOUT
+		================================================================ */
+		#one .content .col-4 p { color: rgba(255,255,255,0.68); font-size: 0.88em; line-height: 1.8; }
+		#one .content .col-4 p strong { color: var(--purple-lg); }
+		#one .content header h2 { font-size: 1.75em; font-weight: 800; color: #fff; line-height: 1.3; }
+		#one .content header > p { color: rgba(255,255,255,0.5); font-size: 0.82em; font-style: italic; margin-top: 0.3em; }
 
-			/* ============================================================
-			   HIGHLIGHT CHECKLIST
-			============================================================ */
-			.highlight-list {
-				list-style: none;
-				padding: 0;
-				margin: 0 0 1.8em 0;
-			}
-			.highlight-list li {
-				padding: 0.4em 0 0.4em 1.9em;
-				position: relative;
-				font-size: 0.9em;
-				line-height: 1.55;
-				color: rgba(255,255,255,0.82);
-			}
-			.highlight-list li::before {
-				content: "✓";
-				position: absolute;
-				left: 0;
-				color: var(--purple-light);
-				font-weight: 900;
-				font-size: 1em;
-			}
-			.highlight-list li strong {
-				color: #fff;
-				font-weight: 700;
-			}
+		/* ================================================================
+		   HIGHLIGHT CHECKLIST
+		================================================================ */
+		.highlight-list {
+			list-style: none;
+			padding: 0;
+			margin: 0 0 1.6em;
+		}
+		.highlight-list li {
+			padding: 0.38em 0 0.38em 1.9em;
+			position: relative;
+			font-size: 0.88em;
+			line-height: 1.55;
+			color: rgba(255,255,255,0.78);
+		}
+		.highlight-list li::before {
+			content: "✓";
+			position: absolute;
+			left: 0;
+			color: var(--purple-lg);
+			font-weight: 900;
+		}
+		.highlight-list li strong { color: #fff; font-weight: 700; }
 
-			/* ============================================================
-			   FEATURES GRID (#modules)
-			============================================================ */
-			#modules {
-				background: var(--dark);
-				padding: 5em 0;
-			}
-			#modules header.major h2 {
-				font-family: 'Inter', sans-serif !important;
-				font-size: 2.4em;
-				font-weight: 900;
-				color: #fff;
-				letter-spacing: -0.5px;
-			}
-			#modules header.major p {
-				font-size: 0.95em;
-				color: var(--text-muted);
-				max-width: 580px;
-				margin: 0 auto;
-				line-height: 1.7;
-			}
+		/* ================================================================
+		   FEATURES GRID
+		================================================================ */
+		#modules {
+			background: var(--dark2) !important;
+		}
+		#modules header.major h2 {
+			font-family: 'Inter', sans-serif !important;
+			font-size: 2.4em;
+			font-weight: 900;
+			color: #fff;
+			letter-spacing: -0.5px;
+		}
+		#modules header.major > p {
+			color: var(--muted);
+			font-size: 0.92em;
+			line-height: 1.72;
+			max-width: 560px;
+			margin: 0.5em auto 0;
+		}
 
-			/* Feature cards */
-			#modules .box.alt section {
-				background: rgba(255,255,255,0.03);
-				border: 1px solid rgba(124,58,237,0.15);
-				border-radius: 16px;
-				padding: 2em 1.6em 1.8em;
-				transition: all 0.25s ease;
-				text-align: left;
-			}
-			#modules .box.alt section:hover {
-				background: rgba(124,58,237,0.08);
-				border-color: rgba(124,58,237,0.4);
-				transform: translateY(-4px);
-				box-shadow: 0 12px 40px rgba(124,58,237,0.18);
-			}
-			#modules .box.alt .icon.solid.alt.major {
-				width: 3em;
-				height: 3em;
-				line-height: 3em;
-				font-size: 1em;
-				border-radius: 12px;
-				background: rgba(124,58,237,0.15);
-				border: 1px solid rgba(124,58,237,0.3);
-				color: var(--purple-light);
-				margin-bottom: 1.2em;
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				transition: all 0.25s;
-			}
-			#modules .box.alt section:hover .icon.solid.alt.major {
-				background: var(--purple);
-				border-color: var(--purple);
-				color: #fff;
-			}
-			#modules .box.alt section h3 {
-				font-size: 0.95em;
-				font-weight: 700;
-				color: #fff;
-				margin: 0 0 0.5em;
-				letter-spacing: 0.1px;
-			}
-			#modules .box.alt section p {
-				font-size: 0.84em;
-				line-height: 1.65;
-				color: rgba(255,255,255,0.6);
-				margin: 0;
-			}
+		/* Cards */
+		#modules .box.alt section {
+			background: rgba(255,255,255,0.028);
+			border: 1px solid rgba(124,58,237,0.14);
+			border-radius: 14px;
+			padding: 1.8em 1.5em;
+			text-align: left;
+			transition: all 0.25s ease;
+		}
+		#modules .box.alt section:hover {
+			background: rgba(124,58,237,0.07);
+			border-color: rgba(124,58,237,0.38);
+			transform: translateY(-5px);
+			box-shadow: 0 16px 40px rgba(124,58,237,0.15);
+		}
+		#modules .box.alt .icon.solid.alt.major {
+			width: 2.8em;
+			height: 2.8em;
+			line-height: 2.8em;
+			font-size: 0.95em;
+			border-radius: 10px;
+			background: rgba(124,58,237,0.14);
+			border: 1px solid rgba(124,58,237,0.28);
+			color: var(--purple-lg);
+			margin-bottom: 1.1em;
+			transition: all 0.25s;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#modules .box.alt section:hover .icon.solid.alt.major {
+			background: var(--purple);
+			border-color: var(--purple);
+			color: #fff;
+			box-shadow: 0 4px 16px rgba(124,58,237,0.4);
+		}
+		#modules .box.alt section h3 {
+			font-size: 0.93em;
+			font-weight: 700;
+			color: #fff;
+			margin: 0 0 0.45em;
+		}
+		#modules .box.alt section p {
+			font-size: 0.82em;
+			line-height: 1.65;
+			color: rgba(255,255,255,0.56);
+			margin: 0;
+		}
+		#modules footer.major .button.primary {
+			background: var(--purple) !important;
+			border-color: var(--purple) !important;
+			color: #fff !important;
+			font-weight: 700 !important;
+			border-radius: 9px !important;
+			padding: 0.82em 2.4em !important;
+			box-shadow: 0 4px 20px rgba(124,58,237,0.38);
+			transition: all 0.22s !important;
+		}
+		#modules footer.major .button.primary:hover {
+			background: var(--purple-dk) !important;
+			border-color: var(--purple-dk) !important;
+			transform: translateY(-2px) !important;
+			box-shadow: 0 10px 30px rgba(124,58,237,0.5) !important;
+		}
 
-			/* CTA button in modules */
-			#modules footer.major .button.primary {
-				background: var(--purple) !important;
-				border-color: var(--purple) !important;
-				color: #fff !important;
-				font-weight: 700;
-				font-size: 0.95em;
-				padding: 0.8em 2.4em;
-				border-radius: 8px;
-				box-shadow: 0 4px 20px rgba(124,58,237,0.35);
-				transition: all 0.2s;
-			}
-			#modules footer.major .button.primary:hover {
-				background: var(--purple-dark) !important;
-				border-color: var(--purple-dark) !important;
-				transform: translateY(-2px);
-				box-shadow: 0 8px 30px rgba(124,58,237,0.5);
-			}
+		/* ================================================================
+		   ABOUT SECTION
+		================================================================ */
+		#about {
+			background: linear-gradient(135deg, #0d0a22 0%, #0a1830 100%) !important;
+			position: relative;
+			overflow: hidden;
+		}
+		#about::before {
+			content: '';
+			position: absolute;
+			width: 700px; height: 700px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 65%);
+			top: -250px; right: -200px;
+			pointer-events: none;
+		}
+		#about .container { position: relative; z-index: 1; }
+		#about header h2 {
+			font-family: 'Inter', sans-serif !important;
+			font-size: 2.2em;
+			font-weight: 900;
+			color: #fff;
+			letter-spacing: -0.3px;
+		}
+		#about header p {
+			font-size: 0.92em;
+			line-height: 1.85;
+			color: rgba(255,255,255,0.68);
+			max-width: 660px;
+			margin: 0.7em auto;
+		}
 
-			/* ============================================================
-			   ABOUT SECTION
-			============================================================ */
-			#about {
-				background: linear-gradient(135deg, #0f0a28 0%, #0a1a3a 100%) !important;
-				position: relative;
-				overflow: hidden;
-			}
-			#about::before {
-				content: '';
-				position: absolute;
-				width: 600px;
-				height: 600px;
-				border-radius: 50%;
-				background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
-				top: -200px;
-				right: -200px;
-				pointer-events: none;
-			}
-			#about .container {
-				position: relative;
-				z-index: 1;
-			}
-			#about header h2 {
-				font-family: 'Inter', sans-serif !important;
-				font-size: 2.2em;
-				font-weight: 900;
-				color: #fff;
-				letter-spacing: -0.3px;
-				line-height: 1.2;
-			}
-			#about header p {
-				font-size: 0.95em;
-				line-height: 1.85;
-				color: rgba(255,255,255,0.72);
-				max-width: 680px;
-				margin: 0.8em auto;
-			}
+		/* ================================================================
+		   CONTACT SECTION
+		================================================================ */
+		#contact {
+			background: linear-gradient(160deg, #0c0a20 0%, #0b1528 100%) !important;
+			position: relative;
+			overflow: hidden;
+		}
+		#contact::after {
+			content: '';
+			position: absolute;
+			width: 600px; height: 600px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 65%);
+			bottom: -200px; right: -150px;
+			pointer-events: none;
+		}
+		#contact .container { position: relative; z-index: 1; }
 
-			/* ============================================================
-			   CONTACT SECTION
-			============================================================ */
-			#contact {
-				background: linear-gradient(160deg, #0e0b22 0%, #0c1830 100%) !important;
-				position: relative;
-				overflow: hidden;
-			}
-			#contact::before {
-				content: '';
-				position: absolute;
-				width: 500px;
-				height: 500px;
-				border-radius: 50%;
-				background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
-				bottom: -150px;
-				left: -150px;
-				pointer-events: none;
-			}
-			#contact .container {
-				position: relative;
-				z-index: 1;
-			}
-			#contact header.major h2 {
-				font-family: 'Inter', sans-serif !important;
-				font-size: 2.4em;
-				font-weight: 900;
-				color: #fff !important;
-				letter-spacing: -0.5px;
-			}
-			#contact header.major p {
-				color: rgba(255,255,255,0.65) !important;
-				font-size: 0.95em;
-				line-height: 1.7;
-			}
+		#contact header.major h2 {
+			font-family: 'Inter', sans-serif !important;
+			font-size: 2.4em;
+			font-weight: 900;
+			color: #fff !important;
+			letter-spacing: -0.5px;
+		}
+		#contact header.major p {
+			color: rgba(255,255,255,0.6) !important;
+			font-size: 0.92em;
+			line-height: 1.72;
+		}
 
-			/* Form inputs */
-			#contact input[type="text"],
-			#contact input[type="email"],
-			#contact textarea {
-				background: rgba(255,255,255,0.05) !important;
-				border: 1.5px solid rgba(124,58,237,0.25) !important;
-				color: #fff !important;
-				border-radius: 8px !important;
-				font-size: 0.88em !important;
-				padding: 0.85em 1.1em !important;
-				transition: border-color 0.2s, background 0.2s;
-				font-family: 'Inter', sans-serif !important;
-			}
-			#contact input::placeholder,
-			#contact textarea::placeholder {
-				color: rgba(255,255,255,0.35) !important;
-			}
-			#contact input:focus,
-			#contact textarea:focus {
-				background: rgba(124,58,237,0.08) !important;
-				border-color: var(--purple-light) !important;
-				outline: none;
-				box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
-			}
+		/* Form fields */
+		#contact input[type="text"],
+		#contact input[type="email"],
+		#contact textarea {
+			background: rgba(255,255,255,0.042) !important;
+			border: 1.5px solid rgba(124,58,237,0.22) !important;
+			border-radius: 9px !important;
+			color: #fff !important;
+			font-size: 0.88em !important;
+			font-family: 'Inter', sans-serif !important;
+			padding: 0.88em 1.1em !important;
+			transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+			width: 100%;
+		}
+		#contact input::placeholder,
+		#contact textarea::placeholder { color: rgba(255,255,255,0.3) !important; }
+		#contact input:focus,
+		#contact textarea:focus {
+			border-color: var(--purple-lg) !important;
+			background: rgba(124,58,237,0.07) !important;
+			box-shadow: 0 0 0 3px rgba(124,58,237,0.14) !important;
+			outline: none !important;
+		}
 
-			/* Submit button */
-			#contact input[type="submit"] {
-				background: var(--purple) !important;
-				border-color: var(--purple) !important;
-				color: #fff !important;
-				font-weight: 700 !important;
-				font-size: 0.95em !important;
-				padding: 0.85em 2.8em !important;
-				border-radius: 8px !important;
-				cursor: pointer;
-				transition: all 0.2s !important;
-				box-shadow: 0 4px 20px rgba(124,58,237,0.35);
-				font-family: 'Inter', sans-serif !important;
-				letter-spacing: 0.3px;
-			}
-			#contact input[type="submit"]:hover {
-				background: var(--purple-dark) !important;
-				border-color: var(--purple-dark) !important;
-				transform: translateY(-2px);
-				box-shadow: 0 8px 28px rgba(124,58,237,0.5) !important;
-			}
+		/* Submit button */
+		#contact .actions input[type="submit"] {
+			background: var(--purple) !important;
+			border: none !important;
+			color: #fff !important;
+			font-weight: 700 !important;
+			font-size: 0.92em !important;
+			font-family: 'Inter', sans-serif !important;
+			padding: 0.88em 3em !important;
+			border-radius: 9px !important;
+			cursor: pointer;
+			box-shadow: 0 4px 20px rgba(124,58,237,0.38);
+			transition: all 0.22s;
+			letter-spacing: 0.3px;
+		}
+		#contact .actions input[type="submit"]:hover {
+			background: var(--purple-dk) !important;
+			transform: translateY(-2px);
+			box-shadow: 0 10px 32px rgba(124,58,237,0.52) !important;
+		}
 
-			/* Email link */
-			.contact-email-line {
-				text-align: center;
-				margin-top: 2em;
-				font-size: 0.88em;
-				color: rgba(255,255,255,0.45);
-			}
-			.contact-email-line a {
-				color: var(--purple-light);
-				font-weight: 600;
-				text-decoration: none;
-				border-bottom: 1px dashed rgba(167,139,250,0.4);
-				padding-bottom: 1px;
-				transition: color 0.2s;
-			}
-			.contact-email-line a:hover { color: #fff; }
+		.contact-alt {
+			text-align: center;
+			margin-top: 1.8em;
+			font-size: 0.86em;
+			color: rgba(255,255,255,0.4);
+		}
+		.contact-alt a {
+			color: var(--purple-lg);
+			font-weight: 600;
+			text-decoration: none;
+			border-bottom: 1px dashed rgba(167,139,250,0.4);
+			transition: color 0.2s;
+		}
+		.contact-alt a:hover { color: #fff; }
 
-			/* ============================================================
-			   FOOTER
-			============================================================ */
-			#footer {
-				background: #060410 !important;
-				border-top: 1px solid rgba(124,58,237,0.15);
-				padding: 3em 0 2.5em;
-			}
-			#footer .icons a {
-				width: 2.4em;
-				height: 2.4em;
-				line-height: 2.4em;
-				border-radius: 50%;
-				color: rgba(255,255,255,0.45) !important;
-				border: 1px solid rgba(255,255,255,0.12) !important;
-				font-size: 0.85em;
-				transition: all 0.2s;
-			}
-			#footer .icons a:hover {
-				color: #fff !important;
-				border-color: var(--purple) !important;
-				background: var(--purple) !important;
-				transform: translateY(-2px);
-			}
-			#footer .copyright {
-				font-size: 0.78em;
-				color: rgba(255,255,255,0.3) !important;
-				margin-top: 1.2em;
-			}
-			#footer .copyright li { color: rgba(255,255,255,0.3); }
-			#footer .copyright a {
-				color: rgba(255,255,255,0.5) !important;
-				text-decoration: none;
-				transition: color 0.2s;
-			}
-			#footer .copyright a:hover { color: var(--purple-light) !important; }
+		/* ================================================================
+		   FOOTER
+		================================================================ */
+		#footer {
+			background: #050310 !important;
+			border-top: 1px solid rgba(124,58,237,0.14);
+		}
+		#footer .icons a {
+			color: rgba(255,255,255,0.4) !important;
+			border-color: rgba(255,255,255,0.1) !important;
+			border-radius: 50%;
+			transition: all 0.22s;
+		}
+		#footer .icons a:hover {
+			color: #fff !important;
+			background: var(--purple) !important;
+			border-color: var(--purple) !important;
+			transform: translateY(-2px);
+		}
+		#footer .copyright li,
+		#footer .copyright { color: rgba(255,255,255,0.28) !important; }
+		#footer .copyright a { color: rgba(255,255,255,0.45) !important; }
+		#footer .copyright a:hover { color: var(--purple-lg) !important; }
 
-			/* ============================================================
-			   GOTO-NEXT ARROW
-			============================================================ */
-			.goto-next::before {
-				background: var(--purple) !important;
-				opacity: 0.85;
-			}
+		/* goto-next arrow */
+		.goto-next::before { background: var(--purple) !important; }
 
 		</style>
 	</head>
@@ -600,277 +534,254 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
-					<h1 id="logo">
-						<a href="index.html" class="logo-text">AAISH <span>Tech</span></a>
-					</h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="#zyrohs">Zyrohs</a></li>
-							<li><a href="#modules">Features</a></li>
-							<li><a href="#about">About</a></li>
-							<li><a href="#contact" class="button primary">Contact Us</a></li>
-						</ul>
-					</nav>
-				</header>
+			<header id="header">
+				<h1 id="logo">
+					<a href="index.html">AAISH <span>Tech</span></a>
+				</h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#zyrohs">Zyrohs</a></li>
+						<li><a href="#modules">Features</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact" class="button primary">Contact Us</a></li>
+					</ul>
+				</nav>
+			</header>
 
 			<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h2>Stop Managing.<br />Start Growing.</h2>
-							<p>AAISH Tech builds software that eliminates the chaos —<br />
-							so you can focus on what actually moves your business forward.</p>
-						</header>
-						<ul class="actions">
-							<li><a href="#zyrohs" class="button primary large scrolly">Discover Zyrohs</a></li>
-							<li><a href="#contact" class="button large scrolly">Talk to Us</a></li>
-						</ul>
-					</div>
-					<a href="#one" class="goto-next scrolly">Next</a>
-				</section>
+			<section id="banner">
+				<div class="bg-image"></div>
+				<div class="blob1"></div>
+				<div class="blob2"></div>
+				<div class="content">
+					<header>
+						<h2>Stop Managing.<br />Start Growing.</h2>
+						<p>AAISH Tech builds software that eliminates the chaos —<br />
+						so you can focus on what actually moves your business forward.</p>
+					</header>
+					<ul class="actions">
+						<li><a href="#zyrohs" class="button primary large scrolly">Discover Zyrohs</a></li>
+						<li><a href="#contact" class="button large scrolly">Talk to Us</a></li>
+					</ul>
+				</div>
+				<a href="#one" class="goto-next scrolly">Next</a>
+			</section>
 
 			<!-- One: About AAISH Tech -->
-				<section id="one" class="spotlight style1 bottom">
-					<span class="image fit main"><img src="images/pic02.jpg" alt="AAISH Tech team" /></span>
-					<div class="content">
-						<div class="container">
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<header>
-										<p class="module-tag">Who We Are</p>
-										<h2>Software built from the ground up for real businesses.</h2>
-										<p>India-based. Product-focused. No fluff.</p>
-									</header>
-								</div>
-								<div class="col-4 col-12-medium">
-									<p>Most business software is either too complex, too expensive, or built for someone else's industry. We started AAISH Tech because growing businesses deserved something better — software that actually fits how they work.</p>
-								</div>
-								<div class="col-4 col-12-medium">
-									<p><strong>Zyrohs</strong> is what came out of that belief. Not a generic template — a platform shaped by conversations with real retailers, distributors, and manufacturers who were tired of duct-taping systems together.</p>
-								</div>
+			<section id="one" class="spotlight style1 bottom">
+				<span class="image fit main"><img src="images/pic02.jpg" alt="AAISH Tech team" /></span>
+				<div class="content">
+					<div class="container">
+						<div class="row">
+							<div class="col-4 col-12-medium">
+								<header>
+									<p class="module-tag">Who We Are</p>
+									<h2>Software built from the ground up for real businesses.</h2>
+									<p>India-based. Product-focused. No fluff.</p>
+								</header>
+							</div>
+							<div class="col-4 col-12-medium">
+								<p>Most business software is either too complex, too expensive, or built for someone else's industry. We started AAISH Tech because growing businesses deserved something better — software that actually fits how they work.</p>
+							</div>
+							<div class="col-4 col-12-medium">
+								<p><strong>Zyrohs</strong> is what came out of that belief. Not a generic template — a platform shaped by conversations with real retailers, distributors, and manufacturers who were tired of duct-taping systems together.</p>
 							</div>
 						</div>
 					</div>
-					<a href="#zyrohs" class="goto-next scrolly">Next</a>
-				</section>
+				</div>
+				<a href="#zyrohs" class="goto-next scrolly">Next</a>
+			</section>
 
-			<!-- Two: Zyrohs Product Spotlight -->
-				<section id="zyrohs" class="spotlight style2 right">
-					<span class="image fit main"><img src="images/pic03.jpg" alt="Zyrohs dashboard" /></span>
-					<div class="content">
-						<header>
-							<p class="module-tag">Our Product</p>
-							<h2>Meet Zyrohs.</h2>
-							<p>One platform. Every part of your business — connected.</p>
-						</header>
-						<p>Zyrohs replaces the patchwork of apps, spreadsheets, and manual entries that slow businesses down. From the sales counter to the balance sheet, everything runs through one intelligent system — in real time, from anywhere.</p>
-						<ul class="highlight-list">
-							<li>Cloud-native — works on any device, anywhere</li>
-							<li>Multi-location &amp; multi-user from day one</li>
-							<li>Built-in double-entry accounting — no separate tool needed</li>
-							<li>Fast POS with barcode scanning &amp; multi-payment</li>
-							<li>Manufacturing with full Bill of Materials support</li>
-							<li>16+ exportable reports — PDF &amp; Excel</li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#modules" class="button scrolly">Explore All Features</a></li>
-						</ul>
-					</div>
-					<a href="#three" class="goto-next scrolly">Next</a>
-				</section>
+			<!-- Two: Zyrohs Product -->
+			<section id="zyrohs" class="spotlight style2 right">
+				<span class="image fit main"><img src="images/pic03.jpg" alt="Zyrohs platform" /></span>
+				<div class="content">
+					<header>
+						<p class="module-tag">Our Product</p>
+						<h2>Meet Zyrohs.</h2>
+						<p>One platform. Every part of your business — connected.</p>
+					</header>
+					<p>Zyrohs replaces the patchwork of apps, spreadsheets, and manual entries that slow businesses down. From the sales counter to the balance sheet, everything runs through one intelligent system — in real time, from anywhere.</p>
+					<ul class="highlight-list">
+						<li>Cloud-native — works on any device, anywhere</li>
+						<li>Multi-location &amp; multi-user from day one</li>
+						<li>Built-in double-entry accounting — no extra tool needed</li>
+						<li>Fast POS with barcode scanning &amp; multi-payment</li>
+						<li>Manufacturing with full Bill of Materials support</li>
+						<li>16+ exportable reports — PDF &amp; Excel</li>
+					</ul>
+					<ul class="actions">
+						<li><a href="#modules" class="button scrolly">Explore All Features</a></li>
+					</ul>
+				</div>
+				<a href="#three" class="goto-next scrolly">Next</a>
+			</section>
 
 			<!-- Three: Who It's For -->
-				<section id="three" class="spotlight style3 left">
-					<span class="image fit main bottom"><img src="images/pic04.jpg" alt="Business operations" /></span>
-					<div class="content">
-						<header>
-							<p class="module-tag">Who It's For</p>
-							<h2>If you run a business, Zyrohs runs with you.</h2>
-							<p>Designed for operations that can't afford to miss a beat.</p>
-						</header>
-						<div class="row">
-							<div class="col-6 col-12-small">
-								<ul class="highlight-list">
-									<li><strong>Retail Stores</strong> — Faster checkout, live stock, zero manual errors</li>
-									<li><strong>Wholesale Distributors</strong> — Bulk orders, credit management, supplier control</li>
-								</ul>
-							</div>
-							<div class="col-6 col-12-small">
-								<ul class="highlight-list">
-									<li><strong>Manufacturing Units</strong> — Recipes, production runs, real cost visibility</li>
-									<li><strong>Trading Companies</strong> — End-to-end buy-sell tracking across locations</li>
-								</ul>
-							</div>
+			<section id="three" class="spotlight style3 left">
+				<span class="image fit main bottom"><img src="images/pic04.jpg" alt="Business operations" /></span>
+				<div class="content">
+					<header>
+						<p class="module-tag">Who It's For</p>
+						<h2>If you run a business, Zyrohs runs with you.</h2>
+						<p>Designed for operations that can't afford to miss a beat.</p>
+					</header>
+					<div class="row">
+						<div class="col-6 col-12-small">
+							<ul class="highlight-list">
+								<li><strong>Retail Stores</strong> — Faster checkout, live stock, zero manual errors</li>
+								<li><strong>Wholesale Distributors</strong> — Bulk orders, credit management, supplier control</li>
+							</ul>
 						</div>
-						<ul class="actions">
-							<li><a href="#contact" class="button primary scrolly">Book a Free Demo</a></li>
-						</ul>
+						<div class="col-6 col-12-small">
+							<ul class="highlight-list">
+								<li><strong>Manufacturing Units</strong> — Recipes, production runs, real cost visibility</li>
+								<li><strong>Trading Companies</strong> — End-to-end buy-sell tracking across locations</li>
+							</ul>
+						</div>
 					</div>
-					<a href="#modules" class="goto-next scrolly">Next</a>
-				</section>
+					<ul class="actions">
+						<li><a href="#contact" class="button primary scrolly">Book a Free Demo</a></li>
+					</ul>
+				</div>
+				<a href="#modules" class="goto-next scrolly">Next</a>
+			</section>
 
 			<!-- Four: Features Grid -->
-				<section id="modules" class="wrapper style1 special fade-up">
-					<div class="container">
-						<header class="major">
-							<p class="module-tag">Features</p>
-							<h2>One system. No gaps.</h2>
-							<p>Every module in Zyrohs is connected — data flows automatically, nothing falls through the cracks, and you always have the full picture.</p>
-						</header>
-						<div class="box alt">
-							<div class="row gtr-uniform">
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-cash-register"></span>
-									<h3>Point of Sale</h3>
-									<p>Lightning-fast checkout with barcode scanning, cash/card/UPI/cheque support, suspend &amp; resume, and branded receipts — built for busy counters.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-boxes"></span>
-									<h3>Inventory Management</h3>
-									<p>Real-time stock across every location. FIFO, LIFO, or Weighted Average costing. Low-stock alerts before you run out — not after.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-file-invoice-dollar"></span>
-									<h3>Sales &amp; CRM</h3>
-									<p>From quotation to invoice to return — track every step. Customer credit, agent commissions, and full payment history in one view.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-shopping-cart"></span>
-									<h3>Purchases &amp; Procurement</h3>
-									<p>Order from suppliers, receive stock, and reconcile invoices — automatically synced with your inventory and accounts the moment it happens.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-chart-line"></span>
-									<h3>Accounting &amp; Finance</h3>
-									<p>Complete double-entry accounting built in — no separate tool needed. P&amp;L, Balance Sheet, Cash Flow, Trial Balance, and fiscal year control.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-industry"></span>
-									<h3>Manufacturing</h3>
-									<p>Define recipes, run production batches, track raw material consumption, and see your true production cost — automatically calculated.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-chart-bar"></span>
-									<h3>Reports &amp; Analytics</h3>
-									<p>16+ actionable reports — trending products, customer performance, expense breakdown, payment tracking. Export to Excel or PDF in one click.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-users"></span>
-									<h3>Multi-User &amp; Roles</h3>
-									<p>Give every team member exactly the access they need — no more, no less. Role-based control across locations, departments, and functions.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-cog"></span>
-									<h3>Multi-Location &amp; Multi-Currency</h3>
-									<p>Open a new branch? Add it in minutes. Run stores across cities or countries — unified inventory, reporting, and accounts under one roof.</p>
-								</section>
-							</div>
+			<section id="modules" class="wrapper style1 special fade-up">
+				<div class="container">
+					<header class="major">
+						<p class="module-tag">Features</p>
+						<h2>One system. No gaps.</h2>
+						<p>Every module in Zyrohs is connected — data flows automatically, nothing falls through the cracks, and you always have the full picture.</p>
+					</header>
+					<div class="box alt">
+						<div class="row gtr-uniform">
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-cash-register"></span>
+								<h3>Point of Sale</h3>
+								<p>Lightning-fast checkout with barcode scanning, cash/card/UPI/cheque support, suspend &amp; resume, and branded receipts — built for busy counters.</p>
+							</section>
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-boxes"></span>
+								<h3>Inventory Management</h3>
+								<p>Real-time stock across every location. FIFO, LIFO, or Weighted Average costing. Low-stock alerts before you run out — not after.</p>
+							</section>
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-file-invoice-dollar"></span>
+								<h3>Sales &amp; CRM</h3>
+								<p>From quotation to invoice to return — track every step. Customer credit, agent commissions, and full payment history in one view.</p>
+							</section>
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-shopping-cart"></span>
+								<h3>Purchases &amp; Procurement</h3>
+								<p>Order from suppliers, receive stock, and reconcile invoices — automatically synced with your inventory and accounts the moment it happens.</p>
+							</section>
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-chart-line"></span>
+								<h3>Accounting &amp; Finance</h3>
+								<p>Complete double-entry accounting — P&amp;L, Balance Sheet, Cash Flow, Trial Balance, and fiscal year control. No separate tool needed.</p>
+							</section>
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-industry"></span>
+								<h3>Manufacturing</h3>
+								<p>Define recipes, run production batches, track raw material consumption, and see your true production cost — automatically calculated.</p>
+							</section>
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-chart-bar"></span>
+								<h3>Reports &amp; Analytics</h3>
+								<p>16+ actionable reports — trending products, customer performance, expense breakdown, payment tracking. Export to Excel or PDF in one click.</p>
+							</section>
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-users"></span>
+								<h3>Multi-User &amp; Roles</h3>
+								<p>Give every team member exactly the access they need — role-based control across locations, departments, and functions.</p>
+							</section>
+							<section class="col-4 col-6-medium col-12-xsmall">
+								<span class="icon solid alt major fa-globe"></span>
+								<h3>Multi-Location &amp; Multi-Currency</h3>
+								<p>Open a new branch in minutes. Run stores across cities — unified inventory, reporting, and accounts under one roof.</p>
+							</section>
 						</div>
-						<footer class="major">
-							<ul class="actions special">
-								<li><a href="#contact" class="button primary scrolly">See Zyrohs in Action</a></li>
-							</ul>
-						</footer>
 					</div>
-				</section>
+					<footer class="major">
+						<ul class="actions special">
+							<li><a href="#contact" class="button primary scrolly">See Zyrohs in Action</a></li>
+						</ul>
+					</footer>
+				</div>
+			</section>
 
 			<!-- About -->
-				<section id="about" class="wrapper style2 special fade">
-					<div class="container">
-						<header>
-							<p class="module-tag">About Us</p>
-							<h2>Built by people who understand business.</h2>
-							<p>AAISH Tech is a software company based in India. We didn't build Zyrohs from a whiteboard — we built it by spending time with real businesses, learning what breaks, what slows people down, and what they actually need to grow.</p>
-							<p>Our mission is simple: replace the chaos of disconnected tools with one system that just works — so business owners spend less time on operations and more time on what matters.</p>
-						</header>
-					</div>
-				</section>
+			<section id="about" class="wrapper style2 special fade">
+				<div class="container">
+					<header>
+						<p class="module-tag">About Us</p>
+						<h2>Built by people who understand business.</h2>
+						<p>AAISH Tech is a software company based in India. We didn't build Zyrohs from a whiteboard — we built it by spending time with real businesses, learning what breaks, what slows people down, and what they actually need to grow.</p>
+						<p>Our mission: replace the chaos of disconnected tools with one system that just works — so you spend less time on operations and more time on what matters.</p>
+					</header>
+				</div>
+			</section>
 
 			<!-- Contact -->
-				<section id="contact" class="wrapper style1 special fade-up">
-					<div class="container">
-						<header class="major">
-							<p class="module-tag">Get in Touch</p>
-							<h2>Let's talk.</h2>
-							<p>Want a demo, have a question, or ready to get started?<br />Drop us a message — we typically respond within 24 hours.</p>
-						</header>
-						<form method="post" action="https://formspree.io/f/YOUR_FORM_ID">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="name" id="name" placeholder="Your Name" required />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<input type="email" name="email" id="email" placeholder="Your Email" required />
-								</div>
-								<div class="col-12">
-									<input type="text" name="subject" id="subject" placeholder="Subject" />
-								</div>
-								<div class="col-12">
-									<textarea name="message" id="message" placeholder="Tell us about your business and what you need..." rows="5" required></textarea>
-								</div>
-								<div class="col-12">
-									<ul class="actions special">
-										<li><input type="submit" value="Send Message" /></li>
-									</ul>
-								</div>
+			<section id="contact" class="wrapper style1 special fade-up">
+				<div class="container">
+					<header class="major">
+						<p class="module-tag">Get in Touch</p>
+						<h2>Let's talk.</h2>
+						<p>Want a demo, have a question, or ready to get started?<br />We typically respond within 24 hours.</p>
+					</header>
+					<form method="post" action="https://formspree.io/f/YOUR_FORM_ID">
+						<div class="row gtr-uniform gtr-50">
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="name" placeholder="Your Name" required />
 							</div>
-						</form>
-						<p class="contact-email-line">
-							Or reach us directly at <a href="mailto:contact@aaishtech.com">contact@aaishtech.com</a>
-						</p>
-					</div>
-				</section>
+							<div class="col-6 col-12-xsmall">
+								<input type="email" name="email" placeholder="Your Email" required />
+							</div>
+							<div class="col-12">
+								<input type="text" name="subject" placeholder="Subject" />
+							</div>
+							<div class="col-12">
+								<textarea name="message" placeholder="Tell us about your business and what you need..." rows="5" required></textarea>
+							</div>
+							<div class="col-12">
+								<ul class="actions special">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+					<p class="contact-alt">Or reach us at <a href="mailto:contact@aaishtech.com">contact@aaishtech.com</a></p>
+				</div>
+			</section>
 
 			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="mailto:contact@aaishtech.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; 2025 AAISH Tech. All rights reserved.</li>
-						<li>Product: <strong style="color:rgba(255,255,255,0.5)">Zyrohs</strong></li>
-						<li><a href="https://aaishtech.com">aaishtech.com</a></li>
-					</ul>
-				</footer>
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="mailto:contact@aaishtech.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; 2025 AAISH Tech. All rights reserved.</li>
+					<li>Product: <strong style="color:rgba(255,255,255,0.45)">Zyrohs</strong></li>
+					<li><a href="https://aaishtech.com">aaishtech.com</a></li>
+				</ul>
+			</footer>
 
 		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<style>
-				/* Ken Burns slow zoom on hero */
-				@keyframes heroZoom {
-					0%   { transform: scale(1.06); }
-					100% { transform: scale(1.0); }
-				}
-				#banner {
-					overflow: hidden;
-				}
-				#banner::after {
-					content: '';
-					position: absolute;
-					inset: -5%;
-					background-image: url('images/banner.jpg');
-					background-size: cover;
-					background-position: center top;
-					animation: heroZoom 12s ease-out forwards;
-					z-index: -1;
-				}
-				#banner {
-					background-image: none !important;
-				}
-			</style>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
