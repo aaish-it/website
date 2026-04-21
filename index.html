@@ -65,17 +65,27 @@
 		}
 		#nav > ul > li > a:hover { color: #fff !important; }
 
-		#nav > ul > li > a.button.primary {
-			background: var(--purple) !important;
-			border-color: var(--purple) !important;
-			color: #fff !important;
-			padding: 0.5em 1.5em !important;
+		/* Nav CTA — custom class, no template interference */
+		a.nav-cta {
+			display: inline-block !important;
+			background: #7C3AED !important;
+			color: #ffffff !important;
+			border: 2px solid #7C3AED !important;
 			border-radius: 7px !important;
+			padding: 0.45em 1.3em !important;
 			font-weight: 700 !important;
+			font-size: 0.82em !important;
+			font-family: 'Inter', sans-serif !important;
+			text-decoration: none !important;
+			letter-spacing: 0.2px;
+			transition: background 0.2s, border-color 0.2s, transform 0.2s !important;
+			line-height: 1 !important;
 		}
-		#nav > ul > li > a.button.primary:hover {
-			background: var(--purple-dk) !important;
-			border-color: var(--purple-dk) !important;
+		a.nav-cta:hover {
+			background: #5B21B6 !important;
+			border-color: #5B21B6 !important;
+			color: #fff !important;
+			transform: translateY(-1px) !important;
 		}
 
 		/* ================================================================
@@ -253,33 +263,64 @@
 			filter: brightness(0.88) saturate(1.12);
 		}
 
-		/* Buttons inside spotlights */
-		.spotlight .actions .button {
-			font-weight: 600 !important;
-			border-radius: 8px !important;
-			font-size: 0.88em !important;
-			transition: all 0.22s !important;
+		/* Section CTA buttons — custom classes only */
+		a.cbtn {
+			display: inline-block;
+			font-family: 'Inter', sans-serif;
+			font-size: 0.88em;
+			font-weight: 700;
+			padding: 0.78em 2em;
+			border-radius: 8px;
+			text-decoration: none;
+			cursor: pointer;
+			letter-spacing: 0.2px;
+			transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
 		}
-		.spotlight .actions .button.primary {
-			background: var(--purple) !important;
-			border-color: var(--purple) !important;
-			color: #fff !important;
-			box-shadow: 0 4px 18px rgba(124,58,237,0.35);
+		a.cbtn-solid {
+			background: #7C3AED;
+			color: #ffffff;
+			border: 2px solid #7C3AED;
+			box-shadow: 0 4px 18px rgba(124,58,237,0.38);
 		}
-		.spotlight .actions .button.primary:hover {
-			background: var(--purple-dk) !important;
-			border-color: var(--purple-dk) !important;
-			transform: translateY(-2px) !important;
+		a.cbtn-solid:hover {
+			background: #5B21B6;
+			border-color: #5B21B6;
+			color: #fff;
+			transform: translateY(-2px);
+			box-shadow: 0 10px 28px rgba(124,58,237,0.55);
 		}
-		.spotlight .actions .button:not(.primary) {
-			background: transparent !important;
-			border: 1.5px solid rgba(255,255,255,0.36) !important;
-			color: rgba(255,255,255,0.85) !important;
+		a.cbtn-outline {
+			background: transparent;
+			color: rgba(255,255,255,0.88);
+			border: 2px solid rgba(255,255,255,0.4);
 		}
-		.spotlight .actions .button:not(.primary):hover {
-			border-color: var(--purple-lg) !important;
-			color: var(--purple-lg) !important;
-			background: rgba(124,58,237,0.1) !important;
+		a.cbtn-outline:hover {
+			border-color: #A78BFA;
+			color: #A78BFA;
+			background: rgba(124,58,237,0.1);
+			transform: translateY(-2px);
+		}
+
+		/* Submit button — use <button> element with custom class */
+		button.submit-btn {
+			display: inline-block;
+			font-family: 'Inter', sans-serif;
+			font-size: 0.92em;
+			font-weight: 700;
+			padding: 0.88em 3em;
+			border-radius: 9px;
+			background: #7C3AED;
+			color: #ffffff;
+			border: none;
+			cursor: pointer;
+			box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+			transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+			letter-spacing: 0.3px;
+		}
+		button.submit-btn:hover {
+			background: #5B21B6;
+			transform: translateY(-2px);
+			box-shadow: 0 10px 30px rgba(124,58,237,0.55);
 		}
 
 		/* ================================================================
@@ -383,22 +424,7 @@
 			color: rgba(255,255,255,0.56);
 			margin: 0;
 		}
-		#modules footer.major .button.primary {
-			background: var(--purple) !important;
-			border-color: var(--purple) !important;
-			color: #fff !important;
-			font-weight: 700 !important;
-			border-radius: 9px !important;
-			padding: 0.82em 2.4em !important;
-			box-shadow: 0 4px 20px rgba(124,58,237,0.38);
-			transition: all 0.22s !important;
-		}
-		#modules footer.major .button.primary:hover {
-			background: var(--purple-dk) !important;
-			border-color: var(--purple-dk) !important;
-			transform: translateY(-2px) !important;
-			box-shadow: 0 10px 30px rgba(124,58,237,0.5) !important;
-		}
+		/* modules CTA handled by .cbtn-solid */
 
 		/* ================================================================
 		   ABOUT SECTION
@@ -568,7 +594,7 @@
 						<li><a href="#zyrohs">Zyrohs</a></li>
 						<li><a href="#modules">Features</a></li>
 						<li><a href="#about">About</a></li>
-						<li><a href="#contact" class="button primary">Contact Us</a></li>
+						<li><a href="#contact" class="nav-cta scrolly">Contact Us</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -636,9 +662,9 @@
 						<li>Manufacturing with full Bill of Materials support</li>
 						<li>16+ exportable reports — PDF &amp; Excel</li>
 					</ul>
-					<ul class="actions">
-						<li><a href="#modules" class="button scrolly">Explore All Features</a></li>
-					</ul>
+					<div style="margin-top:1.8em;">
+						<a href="#modules" class="cbtn cbtn-outline scrolly">Explore All Features</a>
+					</div>
 				</div>
 				<a href="#three" class="goto-next scrolly">Next</a>
 			</section>
@@ -666,9 +692,9 @@
 							</ul>
 						</div>
 					</div>
-					<ul class="actions">
-						<li><a href="#contact" class="button primary scrolly">Book a Free Demo</a></li>
-					</ul>
+					<div style="margin-top:1.8em;">
+						<a href="#contact" class="cbtn cbtn-solid scrolly">Book a Demo</a>
+					</div>
 				</div>
 				<a href="#modules" class="goto-next scrolly">Next</a>
 			</section>
@@ -730,10 +756,8 @@
 							</section>
 						</div>
 					</div>
-					<footer class="major">
-						<ul class="actions special">
-							<li><a href="#contact" class="button primary scrolly">See Zyrohs in Action</a></li>
-						</ul>
+					<footer class="major" style="margin-top:2.5em;">
+						<a href="#contact" class="cbtn cbtn-solid scrolly">See Zyrohs in Action</a>
 					</footer>
 				</div>
 			</section>
@@ -744,8 +768,8 @@
 					<header>
 						<p class="module-tag">About Us</p>
 						<h2>Built by people who understand business.</h2>
-						<p>AAISH Tech is a software company based in India. We didn't build Zyrohs from a whiteboard — we built it by spending time with real businesses, learning what breaks, what slows people down, and what they actually need to grow.</p>
-						<p>Our mission: replace the chaos of disconnected tools with one system that just works — so you spend less time on operations and more time on what matters.</p>
+						<p>AAISH Tech is a software company based in India. We built Zyrohs to solve real problems faced by growing businesses — from managing stock across locations to closing the books at month end.</p>
+						<p>Our mission: give every business — regardless of size — access to software that actually works for them, not against them.</p>
 					</header>
 				</div>
 			</section>
@@ -756,7 +780,7 @@
 					<header class="major">
 						<p class="module-tag">Get in Touch</p>
 						<h2>Let's talk.</h2>
-						<p>Want a demo, have a question, or ready to get started?<br />We typically respond within 24 hours.</p>
+						<p>Want a demo, have a question, or ready to get started?<br />Send us a message and we'll get back to you.</p>
 					</header>
 					<form method="post" action="https://formspree.io/f/YOUR_FORM_ID">
 						<div class="row gtr-uniform gtr-50">
@@ -772,14 +796,13 @@
 							<div class="col-12">
 								<textarea name="message" placeholder="Tell us about your business and what you need..." rows="5" required></textarea>
 							</div>
-							<div class="col-12">
-								<ul class="actions special">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
+							<div class="col-12" style="text-align:center; margin-top:0.5em;">
+								<button type="submit" class="submit-btn">Send Message</button>
 							</div>
 						</div>
 					</form>
 					<p class="contact-alt">Or reach us at <a href="mailto:contact@aaishtech.com">contact@aaishtech.com</a></p>
+					<p class="contact-alt" style="font-size:0.78em; margin-top:0.8em; opacity:0.55;">By submitting this form, you agree to be contacted by AAISH Tech regarding your enquiry. We do not share your information with third parties.</p>
 				</div>
 			</section>
 
