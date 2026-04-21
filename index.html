@@ -575,8 +575,14 @@
 		#footer .copyright a { color: rgba(255,255,255,0.45) !important; }
 		#footer .copyright a:hover { color: var(--purple-lg) !important; }
 
-		/* goto-next arrow */
-		.goto-next::before { background: var(--purple) !important; }
+		/* goto-next arrow — keep template shape, just tint color */
+		.goto-next::before {
+			background-color: var(--purple) !important;
+			border-radius: 100% !important;
+		}
+		.goto-next {
+			border-radius: 100% !important;
+		}
 
 		</style>
 	</head>
