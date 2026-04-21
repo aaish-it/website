@@ -94,12 +94,24 @@
 			background-image: url('images/banner.jpg');
 			background-size: cover;
 			background-position: center;
-			opacity: 0.28;
+			opacity: 0.52;
 			animation: slowZoom 16s ease-out forwards;
 			z-index: 0;
 		}
+		/* Dark gradient on top of photo so text stays readable */
+		#banner .bg-overlay {
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(
+				to bottom,
+				rgba(10,8,24,0.55) 0%,
+				rgba(10,8,24,0.45) 50%,
+				rgba(10,8,24,0.65) 100%
+			);
+			z-index: 1;
+		}
 		@keyframes slowZoom {
-			from { transform: scale(1.08); }
+			from { transform: scale(1.07); }
 			to   { transform: scale(1.0); }
 		}
 
@@ -108,28 +120,28 @@
 			position: absolute;
 			width: 700px; height: 700px;
 			border-radius: 50%;
-			background: radial-gradient(circle, rgba(124,58,237,0.28) 0%, transparent 70%);
+			background: radial-gradient(circle, rgba(124,58,237,0.32) 0%, transparent 65%);
 			top: -200px; left: -150px;
-			z-index: 0;
+			z-index: 2;
 			animation: float1 8s ease-in-out infinite alternate;
 		}
 		#banner .blob2 {
 			position: absolute;
 			width: 500px; height: 500px;
 			border-radius: 50%;
-			background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+			background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 65%);
 			bottom: -100px; right: -100px;
-			z-index: 0;
+			z-index: 2;
 		}
 		@keyframes float1 {
-			from { transform: translate(0, 0) scale(1); }
-			to   { transform: translate(30px, 20px) scale(1.05); }
+			from { transform: translate(0,0) scale(1); }
+			to   { transform: translate(30px,20px) scale(1.05); }
 		}
 
 		/* Content */
 		#banner .content {
 			position: relative;
-			z-index: 2;
+			z-index: 3;
 		}
 		#banner .content header h2 {
 			font-family: 'Inter', sans-serif !important;
@@ -147,37 +159,49 @@
 			font-weight: 400;
 		}
 
-		/* Hero buttons */
-		#banner .actions .button.primary {
-			background: var(--purple) !important;
-			border: none !important;
-			color: #fff !important;
-			font-weight: 700 !important;
-			font-size: 0.92em !important;
-			padding: 0.82em 2.1em !important;
-			border-radius: 9px !important;
-			box-shadow: 0 0 0 0 rgba(124,58,237,0.5);
-			transition: all 0.25s !important;
+		/* Hero custom buttons — completely bypasses template .button class */
+		.hero-btns {
+			display: flex;
+			gap: 1em;
+			flex-wrap: wrap;
+			margin-top: 2.2em;
+			justify-content: center;
 		}
-		#banner .actions .button.primary:hover {
-			background: var(--purple-dk) !important;
-			transform: translateY(-2px) !important;
-			box-shadow: 0 8px 30px rgba(124,58,237,0.55) !important;
+		a.hbtn {
+			display: inline-block;
+			font-family: 'Inter', sans-serif;
+			font-size: 0.95em;
+			font-weight: 700;
+			padding: 0.82em 2.2em;
+			border-radius: 9px;
+			text-decoration: none;
+			cursor: pointer;
+			transition: transform 0.22s, box-shadow 0.22s, background 0.22s, border-color 0.22s;
+			letter-spacing: 0.2px;
 		}
-		#banner .actions .button:not(.primary) {
-			background: transparent !important;
-			border: 1.5px solid rgba(255,255,255,0.38) !important;
-			color: rgba(255,255,255,0.88) !important;
-			font-weight: 600 !important;
-			font-size: 0.92em !important;
-			padding: 0.82em 2.1em !important;
-			border-radius: 9px !important;
-			transition: all 0.25s !important;
+		a.hbtn-solid {
+			background: #7C3AED;
+			color: #ffffff;
+			border: 2px solid #7C3AED;
+			box-shadow: 0 4px 22px rgba(124,58,237,0.45);
 		}
-		#banner .actions .button:not(.primary):hover {
-			border-color: rgba(255,255,255,0.75) !important;
-			color: #fff !important;
-			background: rgba(255,255,255,0.07) !important;
+		a.hbtn-solid:hover {
+			background: #5B21B6;
+			border-color: #5B21B6;
+			transform: translateY(-2px);
+			box-shadow: 0 10px 32px rgba(124,58,237,0.6);
+			color: #fff;
+		}
+		a.hbtn-outline {
+			background: transparent;
+			color: #ffffff;
+			border: 2px solid rgba(255,255,255,0.5);
+		}
+		a.hbtn-outline:hover {
+			border-color: rgba(255,255,255,0.9);
+			background: rgba(255,255,255,0.08);
+			transform: translateY(-2px);
+			color: #fff;
 		}
 
 		/* ================================================================
@@ -552,6 +576,7 @@
 			<!-- Banner -->
 			<section id="banner">
 				<div class="bg-image"></div>
+				<div class="bg-overlay"></div>
 				<div class="blob1"></div>
 				<div class="blob2"></div>
 				<div class="content">
@@ -560,10 +585,10 @@
 						<p>AAISH Tech builds software that eliminates the chaos —<br />
 						so you can focus on what actually moves your business forward.</p>
 					</header>
-					<ul class="actions">
-						<li><a href="#zyrohs" class="button primary large scrolly">Discover Zyrohs</a></li>
-						<li><a href="#contact" class="button large scrolly">Talk to Us</a></li>
-					</ul>
+					<div class="hero-btns">
+						<a href="#zyrohs" class="hbtn hbtn-solid scrolly">Discover Zyrohs</a>
+						<a href="#contact" class="hbtn hbtn-outline scrolly">Talk to Us</a>
+					</div>
 				</div>
 				<a href="#one" class="goto-next scrolly">Next</a>
 			</section>
