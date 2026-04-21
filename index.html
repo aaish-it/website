@@ -20,6 +20,8 @@
 				--brand-purple: #6C3FD4;
 				--brand-blue: #3B9EE8;
 			}
+
+			/* Buttons */
 			#header .button.primary,
 			.button.primary {
 				background-color: var(--brand-purple);
@@ -30,46 +32,161 @@
 				background-color: #5a33b8;
 				border-color: #5a33b8;
 			}
+
+			/* Logo */
 			.logo-text {
 				font-weight: 800;
-				letter-spacing: 1px;
+				letter-spacing: 2px;
+				font-size: 1.1em;
 				color: #fff !important;
+				text-transform: uppercase;
 			}
 			.logo-text span {
 				color: #a78bfa;
 			}
-			#banner .content header h2 {
-				font-size: 2.8em;
-				line-height: 1.2;
+
+			/* Banner hero */
+			#banner {
+				background-image: url('images/banner.jpg');
+				background-size: cover;
+				background-position: center center;
+				background-attachment: fixed;
 			}
+			#banner::before {
+				background: linear-gradient(135deg, rgba(30,10,60,0.82) 0%, rgba(20,40,80,0.75) 100%);
+			}
+			#banner .content header h2 {
+				font-size: 3.2em;
+				line-height: 1.15;
+				font-weight: 800;
+				letter-spacing: -0.5px;
+			}
+			#banner .content header p {
+				font-size: 1.15em;
+				opacity: 0.88;
+				line-height: 1.7;
+			}
+
+			/* Spotlight image overlay tint */
+			#one .image.fit.main::before {
+				background: linear-gradient(to right, rgba(20,10,50,0.5), rgba(20,10,50,0.15));
+			}
+			#zyrohs .image.fit.main::before,
+			section#two .image.fit.main::before {
+				background: linear-gradient(to left, rgba(10,20,50,0.5), rgba(10,20,50,0.15));
+			}
+			#three .image.fit.main::before {
+				background: linear-gradient(to right, rgba(10,30,20,0.45), rgba(10,30,20,0.1));
+			}
+
+			/* Section headings */
+			.spotlight .content header h2 {
+				font-size: 2em;
+				font-weight: 800;
+				line-height: 1.25;
+			}
+			.spotlight .content header p {
+				font-size: 1em;
+				opacity: 0.8;
+				letter-spacing: 0.5px;
+			}
+
+			/* Module tag pill */
 			.module-tag {
 				display: inline-block;
-				background: rgba(108, 63, 212, 0.12);
-				color: var(--brand-purple);
-				border-radius: 4px;
-				padding: 2px 10px;
-				font-size: 0.75em;
+				background: rgba(108, 63, 212, 0.15);
+				color: #a78bfa;
+				border-radius: 20px;
+				padding: 3px 14px;
+				font-size: 0.7em;
 				font-weight: 700;
-				letter-spacing: 1px;
+				letter-spacing: 2px;
 				text-transform: uppercase;
-				margin-bottom: 0.6em;
+				margin-bottom: 0.8em;
+				border: 1px solid rgba(108, 63, 212, 0.3);
 			}
+
+			/* Feature grid icons */
+			#modules .icon.solid.alt.major {
+				color: var(--brand-purple);
+				border-color: rgba(108, 63, 212, 0.3);
+				background: rgba(108, 63, 212, 0.06);
+			}
+			#modules section h3 {
+				font-size: 1em;
+				font-weight: 700;
+				margin-bottom: 0.4em;
+			}
+			#modules section p {
+				font-size: 0.88em;
+				line-height: 1.6;
+				opacity: 0.85;
+			}
+
+			/* About section */
+			#about {
+				background: linear-gradient(135deg, #1a0a3a 0%, #0d1f3c 100%);
+			}
+			#about header h2 {
+				font-size: 2em;
+				font-weight: 800;
+			}
+			#about header p {
+				font-size: 0.98em;
+				line-height: 1.8;
+				opacity: 0.85;
+				max-width: 700px;
+				margin: 0 auto 1em;
+			}
+
+			/* Checklist */
 			.highlight-list {
 				list-style: none;
 				padding: 0;
 				margin: 0 0 1.5em 0;
 			}
 			.highlight-list li {
-				padding: 0.3em 0 0.3em 1.6em;
+				padding: 0.35em 0 0.35em 1.8em;
 				position: relative;
-				font-size: 0.95em;
+				font-size: 0.92em;
+				line-height: 1.5;
 			}
 			.highlight-list li::before {
 				content: "✓";
 				position: absolute;
 				left: 0;
-				color: var(--brand-purple);
-				font-weight: 700;
+				color: #a78bfa;
+				font-weight: 800;
+			}
+
+			/* Contact section */
+			#contact {
+				background: #f8f7ff;
+			}
+			#contact header h2 {
+				color: #1a0a3a;
+			}
+			#contact header p {
+				color: #555;
+			}
+
+			/* Footer */
+			#footer {
+				background: #0d0520;
+			}
+			#footer .icons a {
+				color: rgba(255,255,255,0.5);
+				border-color: rgba(255,255,255,0.15);
+			}
+			#footer .icons a:hover {
+				color: #a78bfa;
+				border-color: #a78bfa;
+			}
+			#footer .copyright {
+				color: rgba(255,255,255,0.35);
+			}
+			#footer .copyright a {
+				color: rgba(255,255,255,0.55);
 			}
 		</style>
 	</head>
