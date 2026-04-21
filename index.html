@@ -1,193 +1,563 @@
 <!DOCTYPE HTML>
 <!--
-	Landed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-	Customized for AAISH Tech
+	Landed by HTML5 UP — Customized for AAISH Tech
+	html5up.net | @ajlkn | CCA 3.0 license
 -->
 <html>
 	<head>
 		<title>AAISH Tech — Business Software Solutions</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="AAISH Tech builds smart, practical business management software. Zyrohs is our all-in-one ERP platform for retail, wholesale, manufacturing, and trading businesses." />
+		<meta name="description" content="AAISH Tech builds smart business management software. Zyrohs is our all-in-one ERP platform for retail, wholesale, manufacturing, and trading businesses." />
 		<meta name="keywords" content="AAISH Tech, Zyrohs, business software, ERP, POS, inventory management, accounting software" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* AAISH Tech Brand Colors */
+
+			/* ============================================================
+			   BASE & FONTS
+			============================================================ */
 			:root {
-				--brand-purple: #6C3FD4;
-				--brand-blue: #3B9EE8;
+				--purple:       #7C3AED;
+				--purple-light: #A78BFA;
+				--purple-dark:  #5B21B6;
+				--blue:         #3B82F6;
+				--dark:         #0C0A1A;
+				--dark-2:       #110D2A;
+				--dark-3:       #1A1035;
+				--text-muted:   rgba(255,255,255,0.62);
 			}
 
-			/* Buttons */
-			#header .button.primary,
-			.button.primary {
-				background-color: var(--brand-purple);
-				border-color: var(--brand-purple);
-			}
-			#header .button.primary:hover,
-			.button.primary:hover {
-				background-color: #5a33b8;
-				border-color: #5a33b8;
+			*, *::before, *::after { box-sizing: border-box; }
+
+			body, input, select, textarea, button {
+				font-family: 'Inter', sans-serif !important;
 			}
 
-			/* Logo */
-			.logo-text {
-				font-weight: 800;
-				letter-spacing: 2px;
-				font-size: 1.1em;
-				color: #fff !important;
+			/* ============================================================
+			   HEADER / NAV
+			============================================================ */
+			#header {
+				background: rgba(12, 10, 26, 0.92);
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+				border-bottom: 1px solid rgba(124, 58, 237, 0.18);
+				padding: 0 2em;
+			}
+			#header.alt {
+				background: transparent;
+				border-bottom: none;
+			}
+
+			#logo a.logo-text {
+				font-family: 'Inter', sans-serif !important;
+				font-weight: 900;
+				font-size: 1.15em;
+				letter-spacing: 2.5px;
 				text-transform: uppercase;
+				color: #fff !important;
+				text-decoration: none;
 			}
-			.logo-text span {
-				color: #a78bfa;
+			#logo a.logo-text span {
+				color: var(--purple-light);
 			}
 
-			/* Banner hero */
+			#nav > ul > li > a {
+				font-size: 0.82em;
+				font-weight: 600;
+				letter-spacing: 0.5px;
+				color: rgba(255,255,255,0.78) !important;
+				transition: color 0.2s;
+			}
+			#nav > ul > li > a:hover { color: #fff !important; }
+
+			#nav > ul > li > a.button.primary {
+				background: var(--purple) !important;
+				border-color: var(--purple) !important;
+				color: #fff !important;
+				padding: 0.5em 1.4em;
+				border-radius: 6px;
+				font-weight: 700;
+				transition: background 0.2s, transform 0.15s;
+			}
+			#nav > ul > li > a.button.primary:hover {
+				background: var(--purple-dark) !important;
+				border-color: var(--purple-dark) !important;
+				transform: translateY(-1px);
+			}
+
+			/* ============================================================
+			   BANNER / HERO
+			============================================================ */
 			#banner {
 				background-image: url('images/banner.jpg');
 				background-size: cover;
-				background-position: center center;
+				background-position: center;
 				background-attachment: fixed;
+				position: relative;
 			}
 			#banner::before {
-				background: linear-gradient(135deg, rgba(30,10,60,0.82) 0%, rgba(20,40,80,0.75) 100%);
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(135deg,
+					rgba(10, 5, 30, 0.88) 0%,
+					rgba(20, 10, 60, 0.78) 50%,
+					rgba(10, 25, 70, 0.72) 100%);
+				z-index: 0;
+			}
+			#banner .content {
+				position: relative;
+				z-index: 1;
 			}
 			#banner .content header h2 {
-				font-size: 3.2em;
-				line-height: 1.15;
-				font-weight: 800;
-				letter-spacing: -0.5px;
+				font-family: 'Inter', sans-serif !important;
+				font-size: 3.4em;
+				font-weight: 900;
+				line-height: 1.1;
+				letter-spacing: -1px;
+				color: #fff;
+				margin-bottom: 0.5em;
 			}
 			#banner .content header p {
-				font-size: 1.15em;
-				opacity: 0.88;
-				line-height: 1.7;
+				font-size: 1.12em;
+				line-height: 1.75;
+				color: rgba(255,255,255,0.78);
+				font-weight: 400;
+				margin-bottom: 0;
 			}
 
-			/* Spotlight image overlay tint */
-			#one .image.fit.main::before {
-				background: linear-gradient(to right, rgba(20,10,50,0.5), rgba(20,10,50,0.15));
+			/* Hero buttons */
+			#banner .actions .button.primary {
+				background: var(--purple) !important;
+				border-color: var(--purple) !important;
+				color: #fff !important;
+				font-weight: 700;
+				font-size: 0.95em;
+				padding: 0.75em 2em;
+				border-radius: 8px;
+				transition: all 0.2s;
+				box-shadow: 0 4px 20px rgba(124,58,237,0.4);
 			}
-			#zyrohs .image.fit.main::before,
-			section#two .image.fit.main::before {
-				background: linear-gradient(to left, rgba(10,20,50,0.5), rgba(10,20,50,0.15));
+			#banner .actions .button.primary:hover {
+				background: var(--purple-dark) !important;
+				border-color: var(--purple-dark) !important;
+				transform: translateY(-2px);
+				box-shadow: 0 8px 28px rgba(124,58,237,0.5);
 			}
-			#three .image.fit.main::before {
-				background: linear-gradient(to right, rgba(10,30,20,0.45), rgba(10,30,20,0.1));
+			#banner .actions .button:not(.primary) {
+				background: transparent !important;
+				border: 2px solid rgba(255,255,255,0.45) !important;
+				color: rgba(255,255,255,0.9) !important;
+				font-weight: 600;
+				font-size: 0.95em;
+				padding: 0.75em 2em;
+				border-radius: 8px;
+				transition: all 0.2s;
+			}
+			#banner .actions .button:not(.primary):hover {
+				border-color: rgba(255,255,255,0.85) !important;
+				color: #fff !important;
+				background: rgba(255,255,255,0.08) !important;
 			}
 
-			/* Section headings */
-			.spotlight .content header h2 {
-				font-size: 2em;
-				font-weight: 800;
-				line-height: 1.25;
-			}
-			.spotlight .content header p {
-				font-size: 1em;
-				opacity: 0.8;
-				letter-spacing: 0.5px;
-			}
-
-			/* Module tag pill */
+			/* ============================================================
+			   MODULE TAG PILL
+			============================================================ */
 			.module-tag {
 				display: inline-block;
-				background: rgba(108, 63, 212, 0.15);
-				color: #a78bfa;
-				border-radius: 20px;
-				padding: 3px 14px;
-				font-size: 0.7em;
+				background: rgba(124, 58, 237, 0.18);
+				color: var(--purple-light);
+				border: 1px solid rgba(124, 58, 237, 0.35);
+				border-radius: 100px;
+				padding: 4px 16px;
+				font-size: 0.68em;
 				font-weight: 700;
-				letter-spacing: 2px;
+				letter-spacing: 2.5px;
 				text-transform: uppercase;
-				margin-bottom: 0.8em;
-				border: 1px solid rgba(108, 63, 212, 0.3);
+				margin-bottom: 1em;
 			}
 
-			/* Feature grid icons */
-			#modules .icon.solid.alt.major {
-				color: var(--brand-purple);
-				border-color: rgba(108, 63, 212, 0.3);
-				background: rgba(108, 63, 212, 0.06);
-			}
-			#modules section h3 {
-				font-size: 1em;
-				font-weight: 700;
-				margin-bottom: 0.4em;
-			}
-			#modules section p {
-				font-size: 0.88em;
-				line-height: 1.6;
-				opacity: 0.85;
-			}
-
-			/* About section */
-			#about {
-				background: linear-gradient(135deg, #1a0a3a 0%, #0d1f3c 100%);
-			}
-			#about header h2 {
-				font-size: 2em;
+			/* ============================================================
+			   SPOTLIGHT SECTIONS
+			============================================================ */
+			.spotlight .content header h2 {
+				font-family: 'Inter', sans-serif !important;
+				font-size: 2.1em;
 				font-weight: 800;
+				line-height: 1.2;
+				letter-spacing: -0.3px;
+				color: #fff;
 			}
-			#about header p {
-				font-size: 0.98em;
+			.spotlight .content header p {
+				font-size: 0.95em;
+				color: var(--text-muted);
+				letter-spacing: 0.3px;
+				margin-top: 0.3em;
+			}
+			.spotlight .content p {
+				font-size: 0.92em;
 				line-height: 1.8;
-				opacity: 0.85;
-				max-width: 700px;
-				margin: 0 auto 1em;
+				color: rgba(255,255,255,0.75);
 			}
 
-			/* Checklist */
+			/* Spotlight outline buttons */
+			.spotlight .actions .button:not(.primary) {
+				background: transparent !important;
+				border: 2px solid rgba(255,255,255,0.4) !important;
+				color: rgba(255,255,255,0.9) !important;
+				font-weight: 600;
+				border-radius: 7px;
+				transition: all 0.2s;
+			}
+			.spotlight .actions .button:not(.primary):hover {
+				border-color: var(--purple-light) !important;
+				color: var(--purple-light) !important;
+				background: rgba(124,58,237,0.1) !important;
+			}
+			.spotlight .actions .button.primary {
+				background: var(--purple) !important;
+				border-color: var(--purple) !important;
+				color: #fff !important;
+				font-weight: 700;
+				border-radius: 7px;
+			}
+
+			/* ============================================================
+			   SECTION ONE — ABOUT AAISH TECH (3-col)
+			============================================================ */
+			#one {
+				background: var(--dark-2);
+			}
+			#one .content {
+				background: rgba(12, 10, 26, 0.88);
+				backdrop-filter: blur(8px);
+			}
+			#one .content h2 {
+				font-size: 1.85em;
+				font-weight: 800;
+				line-height: 1.25;
+				color: #fff;
+			}
+			#one .content header p {
+				font-size: 0.82em;
+				color: var(--text-muted);
+				font-style: italic;
+			}
+			#one .content .col-4 > p {
+				font-size: 0.88em;
+				line-height: 1.8;
+				color: rgba(255,255,255,0.7);
+			}
+			#one .content .col-4 > p strong {
+				color: var(--purple-light);
+			}
+
+			/* ============================================================
+			   HIGHLIGHT CHECKLIST
+			============================================================ */
 			.highlight-list {
 				list-style: none;
 				padding: 0;
-				margin: 0 0 1.5em 0;
+				margin: 0 0 1.8em 0;
 			}
 			.highlight-list li {
-				padding: 0.35em 0 0.35em 1.8em;
+				padding: 0.4em 0 0.4em 1.9em;
 				position: relative;
-				font-size: 0.92em;
-				line-height: 1.5;
+				font-size: 0.9em;
+				line-height: 1.55;
+				color: rgba(255,255,255,0.82);
 			}
 			.highlight-list li::before {
 				content: "✓";
 				position: absolute;
 				left: 0;
-				color: #a78bfa;
-				font-weight: 800;
+				color: var(--purple-light);
+				font-weight: 900;
+				font-size: 1em;
+			}
+			.highlight-list li strong {
+				color: #fff;
+				font-weight: 700;
 			}
 
-			/* Contact section */
+			/* ============================================================
+			   FEATURES GRID (#modules)
+			============================================================ */
+			#modules {
+				background: var(--dark);
+				padding: 5em 0;
+			}
+			#modules header.major h2 {
+				font-family: 'Inter', sans-serif !important;
+				font-size: 2.4em;
+				font-weight: 900;
+				color: #fff;
+				letter-spacing: -0.5px;
+			}
+			#modules header.major p {
+				font-size: 0.95em;
+				color: var(--text-muted);
+				max-width: 580px;
+				margin: 0 auto;
+				line-height: 1.7;
+			}
+
+			/* Feature cards */
+			#modules .box.alt section {
+				background: rgba(255,255,255,0.03);
+				border: 1px solid rgba(124,58,237,0.15);
+				border-radius: 16px;
+				padding: 2em 1.6em 1.8em;
+				transition: all 0.25s ease;
+				text-align: left;
+			}
+			#modules .box.alt section:hover {
+				background: rgba(124,58,237,0.08);
+				border-color: rgba(124,58,237,0.4);
+				transform: translateY(-4px);
+				box-shadow: 0 12px 40px rgba(124,58,237,0.18);
+			}
+			#modules .box.alt .icon.solid.alt.major {
+				width: 3em;
+				height: 3em;
+				line-height: 3em;
+				font-size: 1em;
+				border-radius: 12px;
+				background: rgba(124,58,237,0.15);
+				border: 1px solid rgba(124,58,237,0.3);
+				color: var(--purple-light);
+				margin-bottom: 1.2em;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.25s;
+			}
+			#modules .box.alt section:hover .icon.solid.alt.major {
+				background: var(--purple);
+				border-color: var(--purple);
+				color: #fff;
+			}
+			#modules .box.alt section h3 {
+				font-size: 0.95em;
+				font-weight: 700;
+				color: #fff;
+				margin: 0 0 0.5em;
+				letter-spacing: 0.1px;
+			}
+			#modules .box.alt section p {
+				font-size: 0.84em;
+				line-height: 1.65;
+				color: rgba(255,255,255,0.6);
+				margin: 0;
+			}
+
+			/* CTA button in modules */
+			#modules footer.major .button.primary {
+				background: var(--purple) !important;
+				border-color: var(--purple) !important;
+				color: #fff !important;
+				font-weight: 700;
+				font-size: 0.95em;
+				padding: 0.8em 2.4em;
+				border-radius: 8px;
+				box-shadow: 0 4px 20px rgba(124,58,237,0.35);
+				transition: all 0.2s;
+			}
+			#modules footer.major .button.primary:hover {
+				background: var(--purple-dark) !important;
+				border-color: var(--purple-dark) !important;
+				transform: translateY(-2px);
+				box-shadow: 0 8px 30px rgba(124,58,237,0.5);
+			}
+
+			/* ============================================================
+			   ABOUT SECTION
+			============================================================ */
+			#about {
+				background: linear-gradient(135deg, #0f0a28 0%, #0a1a3a 100%) !important;
+				position: relative;
+				overflow: hidden;
+			}
+			#about::before {
+				content: '';
+				position: absolute;
+				width: 600px;
+				height: 600px;
+				border-radius: 50%;
+				background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+				top: -200px;
+				right: -200px;
+				pointer-events: none;
+			}
+			#about .container {
+				position: relative;
+				z-index: 1;
+			}
+			#about header h2 {
+				font-family: 'Inter', sans-serif !important;
+				font-size: 2.2em;
+				font-weight: 900;
+				color: #fff;
+				letter-spacing: -0.3px;
+				line-height: 1.2;
+			}
+			#about header p {
+				font-size: 0.95em;
+				line-height: 1.85;
+				color: rgba(255,255,255,0.72);
+				max-width: 680px;
+				margin: 0.8em auto;
+			}
+
+			/* ============================================================
+			   CONTACT SECTION
+			============================================================ */
 			#contact {
-				background: #f8f7ff;
+				background: linear-gradient(160deg, #0e0b22 0%, #0c1830 100%) !important;
+				position: relative;
+				overflow: hidden;
 			}
-			#contact header h2 {
-				color: #1a0a3a;
+			#contact::before {
+				content: '';
+				position: absolute;
+				width: 500px;
+				height: 500px;
+				border-radius: 50%;
+				background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+				bottom: -150px;
+				left: -150px;
+				pointer-events: none;
 			}
-			#contact header p {
-				color: #555;
+			#contact .container {
+				position: relative;
+				z-index: 1;
+			}
+			#contact header.major h2 {
+				font-family: 'Inter', sans-serif !important;
+				font-size: 2.4em;
+				font-weight: 900;
+				color: #fff !important;
+				letter-spacing: -0.5px;
+			}
+			#contact header.major p {
+				color: rgba(255,255,255,0.65) !important;
+				font-size: 0.95em;
+				line-height: 1.7;
 			}
 
-			/* Footer */
+			/* Form inputs */
+			#contact input[type="text"],
+			#contact input[type="email"],
+			#contact textarea {
+				background: rgba(255,255,255,0.05) !important;
+				border: 1.5px solid rgba(124,58,237,0.25) !important;
+				color: #fff !important;
+				border-radius: 8px !important;
+				font-size: 0.88em !important;
+				padding: 0.85em 1.1em !important;
+				transition: border-color 0.2s, background 0.2s;
+				font-family: 'Inter', sans-serif !important;
+			}
+			#contact input::placeholder,
+			#contact textarea::placeholder {
+				color: rgba(255,255,255,0.35) !important;
+			}
+			#contact input:focus,
+			#contact textarea:focus {
+				background: rgba(124,58,237,0.08) !important;
+				border-color: var(--purple-light) !important;
+				outline: none;
+				box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
+			}
+
+			/* Submit button */
+			#contact input[type="submit"] {
+				background: var(--purple) !important;
+				border-color: var(--purple) !important;
+				color: #fff !important;
+				font-weight: 700 !important;
+				font-size: 0.95em !important;
+				padding: 0.85em 2.8em !important;
+				border-radius: 8px !important;
+				cursor: pointer;
+				transition: all 0.2s !important;
+				box-shadow: 0 4px 20px rgba(124,58,237,0.35);
+				font-family: 'Inter', sans-serif !important;
+				letter-spacing: 0.3px;
+			}
+			#contact input[type="submit"]:hover {
+				background: var(--purple-dark) !important;
+				border-color: var(--purple-dark) !important;
+				transform: translateY(-2px);
+				box-shadow: 0 8px 28px rgba(124,58,237,0.5) !important;
+			}
+
+			/* Email link */
+			.contact-email-line {
+				text-align: center;
+				margin-top: 2em;
+				font-size: 0.88em;
+				color: rgba(255,255,255,0.45);
+			}
+			.contact-email-line a {
+				color: var(--purple-light);
+				font-weight: 600;
+				text-decoration: none;
+				border-bottom: 1px dashed rgba(167,139,250,0.4);
+				padding-bottom: 1px;
+				transition: color 0.2s;
+			}
+			.contact-email-line a:hover { color: #fff; }
+
+			/* ============================================================
+			   FOOTER
+			============================================================ */
 			#footer {
-				background: #0d0520;
+				background: #060410 !important;
+				border-top: 1px solid rgba(124,58,237,0.15);
+				padding: 3em 0 2.5em;
 			}
 			#footer .icons a {
-				color: rgba(255,255,255,0.5);
-				border-color: rgba(255,255,255,0.15);
+				width: 2.4em;
+				height: 2.4em;
+				line-height: 2.4em;
+				border-radius: 50%;
+				color: rgba(255,255,255,0.45) !important;
+				border: 1px solid rgba(255,255,255,0.12) !important;
+				font-size: 0.85em;
+				transition: all 0.2s;
 			}
 			#footer .icons a:hover {
-				color: #a78bfa;
-				border-color: #a78bfa;
+				color: #fff !important;
+				border-color: var(--purple) !important;
+				background: var(--purple) !important;
+				transform: translateY(-2px);
 			}
 			#footer .copyright {
-				color: rgba(255,255,255,0.35);
+				font-size: 0.78em;
+				color: rgba(255,255,255,0.3) !important;
+				margin-top: 1.2em;
 			}
+			#footer .copyright li { color: rgba(255,255,255,0.3); }
 			#footer .copyright a {
-				color: rgba(255,255,255,0.55);
+				color: rgba(255,255,255,0.5) !important;
+				text-decoration: none;
+				transition: color 0.2s;
 			}
+			#footer .copyright a:hover { color: var(--purple-light) !important; }
+
+			/* ============================================================
+			   GOTO-NEXT ARROW
+			============================================================ */
+			.goto-next::before {
+				background: var(--purple) !important;
+				opacity: 0.85;
+			}
+
 		</style>
 	</head>
 	<body class="is-preload landing">
@@ -227,7 +597,7 @@
 
 			<!-- One: About AAISH Tech -->
 				<section id="one" class="spotlight style1 bottom">
-					<span class="image fit main"><img src="images/pic02.jpg" alt="AAISH Tech" /></span>
+					<span class="image fit main"><img src="images/pic02.jpg" alt="AAISH Tech team" /></span>
 					<div class="content">
 						<div class="container">
 							<div class="row">
@@ -239,7 +609,7 @@
 									</header>
 								</div>
 								<div class="col-4 col-12-medium">
-									<p>Most business software is either too complex, too expensive, or built for someone else's industry. We started AAISH Tech because we believed growing businesses deserved something better — software that actually fits how they work.</p>
+									<p>Most business software is either too complex, too expensive, or built for someone else's industry. We started AAISH Tech because growing businesses deserved something better — software that actually fits how they work.</p>
 								</div>
 								<div class="col-4 col-12-medium">
 									<p><strong>Zyrohs</strong> is what came out of that belief. Not a generic template — a platform shaped by conversations with real retailers, distributors, and manufacturers who were tired of duct-taping systems together.</p>
@@ -252,7 +622,7 @@
 
 			<!-- Two: Zyrohs Product Spotlight -->
 				<section id="zyrohs" class="spotlight style2 right">
-					<span class="image fit main"><img src="images/pic03.jpg" alt="Zyrohs" /></span>
+					<span class="image fit main"><img src="images/pic03.jpg" alt="Zyrohs dashboard" /></span>
 					<div class="content">
 						<header>
 							<p class="module-tag">Our Product</p>
@@ -277,7 +647,7 @@
 
 			<!-- Three: Who It's For -->
 				<section id="three" class="spotlight style3 left">
-					<span class="image fit main bottom"><img src="images/pic04.jpg" alt="Who Zyrohs is for" /></span>
+					<span class="image fit main bottom"><img src="images/pic04.jpg" alt="Business operations" /></span>
 					<div class="content">
 						<header>
 							<p class="module-tag">Who It's For</p>
@@ -299,19 +669,19 @@
 							</div>
 						</div>
 						<ul class="actions">
-							<li><a href="#contact" class="button scrolly">Book a Free Demo</a></li>
+							<li><a href="#contact" class="button primary scrolly">Book a Free Demo</a></li>
 						</ul>
 					</div>
 					<a href="#modules" class="goto-next scrolly">Next</a>
 				</section>
 
-			<!-- Four: Zyrohs Modules Grid -->
+			<!-- Four: Features Grid -->
 				<section id="modules" class="wrapper style1 special fade-up">
 					<div class="container">
 						<header class="major">
 							<p class="module-tag">Features</p>
 							<h2>One system. No gaps.</h2>
-							<p>Every module in Zyrohs is connected — so data flows automatically, nothing falls through the cracks, and you always have the full picture.</p>
+							<p>Every module in Zyrohs is connected — data flows automatically, nothing falls through the cracks, and you always have the full picture.</p>
 						</header>
 						<div class="box alt">
 							<div class="row gtr-uniform">
@@ -370,13 +740,14 @@
 					</div>
 				</section>
 
-			<!-- Five: About -->
+			<!-- About -->
 				<section id="about" class="wrapper style2 special fade">
 					<div class="container">
 						<header>
+							<p class="module-tag">About Us</p>
 							<h2>Built by people who understand business.</h2>
 							<p>AAISH Tech is a software company based in India. We didn't build Zyrohs from a whiteboard — we built it by spending time with real businesses, learning what breaks, what slows people down, and what they actually need to grow.</p>
-							<p>Our mission is simple: replace the chaos of disconnected tools with one system that just works — so business owners can spend less time on operations and more time on what matters.</p>
+							<p>Our mission is simple: replace the chaos of disconnected tools with one system that just works — so business owners spend less time on operations and more time on what matters.</p>
 						</header>
 					</div>
 				</section>
@@ -385,8 +756,9 @@
 				<section id="contact" class="wrapper style1 special fade-up">
 					<div class="container">
 						<header class="major">
+							<p class="module-tag">Get in Touch</p>
 							<h2>Let's talk.</h2>
-							<p>Want a demo, have a question, or ready to get started? Drop us a message — we typically respond within 24 hours.</p>
+							<p>Want a demo, have a question, or ready to get started?<br />Drop us a message — we typically respond within 24 hours.</p>
 						</header>
 						<form method="post" action="https://formspree.io/f/YOUR_FORM_ID">
 							<div class="row gtr-uniform gtr-50">
@@ -404,14 +776,14 @@
 								</div>
 								<div class="col-12">
 									<ul class="actions special">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="submit" value="Send Message" /></li>
 									</ul>
 								</div>
 							</div>
 						</form>
-						<div style="text-align:center; margin-top: 2em; color: #666;">
-							<p>Or email us directly at <strong>contact@aaishtech.com</strong></p>
-						</div>
+						<p class="contact-email-line">
+							Or reach us directly at <a href="mailto:contact@aaishtech.com">contact@aaishtech.com</a>
+						</p>
 					</div>
 				</section>
 
@@ -423,9 +795,9 @@
 						<li><a href="mailto:contact@aaishtech.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; 2024 AAISH Tech. All rights reserved.</li>
-						<li>Product: <strong>Zyrohs</strong></li>
-						<li>Website: <a href="https://aaishtech.com">aaishtech.com</a></li>
+						<li>&copy; 2025 AAISH Tech. All rights reserved.</li>
+						<li>Product: <strong style="color:rgba(255,255,255,0.5)">Zyrohs</strong></li>
+						<li><a href="https://aaishtech.com">aaishtech.com</a></li>
 					</ul>
 				</footer>
 
